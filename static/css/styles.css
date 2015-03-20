@@ -1,0 +1,40 @@
+
+/* Cajas rotadas */
+.gradient-box{
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5%;
+}
+
+.rotation-box{
+	margin-bottom: 35px ;
+	position: relative;
+	width: 210px;
+	height: 210px;
+}
+
+
+.box-1{
+	transform: rotate(-3deg);
+	z-index: 1;
+}
+.box-2{
+	z-index: 2;
+}
+.box-3{
+	z-index: 3;
+}
+
+.box-3 > img{
+	max-width: 90%;
+	margin: auto;
+	display: block;
+}
+
+.rotation-box .box{
+	padding: 8px;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+/* Cajas rotadas */

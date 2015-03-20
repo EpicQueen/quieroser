@@ -1,8 +1,10 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Se lo que quieras ser</title>
-	<meta charset= "utf-8" />	
+	<meta charset= "utf-8" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 	 <header>
@@ -12,7 +14,7 @@
 		</ul>
 		</nav>
 	</header>
-	<img src="imagenes/DanyGonzalez.png">
+	<img src="{% static 'imagenes/DanyGonzalez.png' %}">
 	<section>
 		<article>
 			<!--/esto es una imagen/-->
@@ -24,48 +26,20 @@
 	</section>
 <p>YO QUIERO SER</p>	
 <section>
-	<article>
-		<img src="imagenes/cajarosa.png">
-		<img src="imagenes/desarrolladoradeapps.png">
-		<figcaption>Desarrolladora de apps</figcaption>
+	{% for track in tracks %}
+	<article class="gradient-box">
+		
+			<div class="rotation-box">
+				<div class="box box-1" style=" background: linear-gradient({{track.top_color}}, {{track.bottom_color}});"></div>
+				<div class="box box-2" style="background: linear-gradient({{track.top_color}}, {{track.bottom_color}});"></div>
+				<div  class="box box-3">
+					<img src="{{track.cover.url}}">
+				</div>
+			</div>
+		
+		<p>{{track.name|capfirst}}</p>
 	</article>
-	<article>
-		<img src="imagenes/cajamorada.png">
-		<img src="imagenes/creadorapagsweb.png">
-		<figcaption>Creadora de páginas web</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajaverde.png">
-		<img src="imagenes/programadora.png"
-		<figcaption>Programadora</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajaamarilla.png">
-		<img src="imagenes/científica.png">
-		<figcaption>Científica</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajaverde.png">
-		<img src="imagenes/química.png">
-		<figcaption>Química</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajaamarilla.png">
-		<img src="imagenes/impresion3d.png">
-		<figcaption>Maker de impresión 3D</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajarosa.png">
-		<!--/esto es una imagen que se repite, se tiene que cambiar/-->
-		<img src="imagenes/desarrolladoradeapps.png"
-		<figcaption>Inventora de Robots</figcaption>
-	</article>	
-	<article>
-		<img src="imagenes/cajamorada.png">
-		<!--/esto es una imagen que se repite, se tiene que cambiar/-->
-		<img src="imagenes/programadora.png">
-		<figcaption>Especialista de Drones</figcaption>
-	</article>		
+	{% endfor %}
 </section>
 <p>Conoce más proyectos de mujeres que nos inspiran</p>	
 <section>
