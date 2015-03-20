@@ -17,6 +17,10 @@ class Step(models.Model):
 	cover = models.ImageField(upload_to='step-cover/')
 	name = models.CharField(max_length=100)
 	url = models.URLField()
+	number = models.PositiveIntegerField()
+
+	class Meta:
+		unique_together = ['track', 'number']
 
 	def __str__(self):
 		return "{0} - {1}".format(self.track.name, self.name)
